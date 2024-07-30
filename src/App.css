@@ -1,38 +1,96 @@
+:root {
+  --color: blue;
+}
+
+* {
+  padding: 0;
+  margin:0;
+
+  box-sizing: border-box;
+}
+
+body, html, #root {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  background-color: gainsboro;
+}
+
+/* Classes */
+
 .App {
+
+  position: relative;
+
+  height:70%;
+  width: 70%;
+
+  margin: auto;
+
+  transform: translateY(-50%);
+  top: 50%;
+}
+
+.killCounter {
+  display: flex;
+  font-size: 3rem;
+  align-items: center;
+}
+.killCounter span {
+  display: block;
+
+  width: 4rem;
+  height: 4rem;
+
   text-align: center;
+  align-content: center;
+
+
+  margin: 0 .4rem;
+  /*padding: .4rem;*/
+
+  background-color: darkcyan;
+
+  border-radius: 10%;
+}
+.killCounter svg {
+  margin: .2rem;
+}
+.killCounter svg:hover {
+  color: white;
+  cursor: pointer;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.player-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 40rem;
+
+  margin: 1rem auto;
+  padding: .5rem;
+
+  border: darkcyan 4px solid;
+
+  background-color: cadetblue;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.player-details {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.player-image {
+  height: 5rem;
+  width: 5rem;
+
+  margin-right: .5rem;
+  border: darkcyan solid 4px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.player-info {
+  display: flex;
+  /*flex-direction: column;*/
 }
