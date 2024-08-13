@@ -46,6 +46,10 @@ export const THURSDAY_PLAYERS = [
             {id: 0, type: "goblin", count: 2},
             {id: 1, type: "orc", count: 2},
             {id: 2, type: "ogre", count: 1}]
+        /*
+            TODO Distinct kills with more detailed stats
+            {id: 3, enemy: "ogre", subType: class?, killedWith: "short sword", date: DDMMYYYY, time: 12:23}
+        */
     }),
     new Player({
         player: "Jon", characterName: "Haarsk", level: 3, clazz: "?", race: "Dwarf",

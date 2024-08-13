@@ -1,3 +1,5 @@
+import "./styles/PlayerImage.css";
+
 function PlayerImage({placeHolder, playerName}) {
     return (
         <div className={"player-image"}>

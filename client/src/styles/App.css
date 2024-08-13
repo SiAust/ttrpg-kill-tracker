@@ -1,0 +1,385 @@
+:root {
+    --col-platinum: #dbdbdb;
+    --col-ash-gray: #9dbdbe;
+    --col-main: cadetblue;
+    --col-main2: darkcyan;
+    --col-carib-current: #286567;
+
+    --border-thin: darkcyan 2px solid;
+    --border-med: darkcyan 4px solid;
+    --border-thick: darkcyan 6px solid;
+    --border-rad: 6px;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+
+    box-sizing: border-box;
+
+}
+
+body, html, #root {
+    width: 100vw;
+    height: 100vh;
+}
+
+body {
+    background-color: var(--col-platinum);
+}
+
+button {
+    margin: .5rem;
+    padding: .5rem;
+
+    border: darkcyan 2px solid;
+    border-radius: var(--border-rad);
+
+    background-color: cadetblue;
+
+    cursor: pointer;
+
+    color: gainsboro;
+
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: darkcyan;
+}
+
+header {
+    position: fixed;
+    top: 0;
+
+    display: flex;
+
+    height: 4rem;
+    width: 100%;
+
+    margin: 0 auto;
+
+    align-items: center;
+    justify-content: center;
+
+    background-color: cadetblue;
+    color: darkcyan;
+
+    border-bottom: 4px solid darkcyan;
+
+    z-index: 1;
+}
+
+header button {
+    background-color: cadetblue;
+
+    height: 2rem;
+
+    padding: .2rem;
+
+    font-size: .8rem;
+
+    color: gainsboro;
+}
+
+header button:hover {
+    background-color: darkcyan;
+
+    color: white;
+}
+
+header input {
+    height: 2rem;
+
+    margin-left: .4rem;
+}
+
+header svg {
+    margin: 0 .4rem;
+
+    font-size: .8rem;
+}
+
+main {
+    position: relative;
+
+    /*height: 70%;*/
+    /*width: 70%;*/
+
+    margin: 4rem;
+
+    /*transform: translateY(-50%);*/
+    /*top: 50%;*/
+
+    text-align: center;
+    z-index: 0;
+}
+
+main header {
+    position: relative;
+
+    background-color: rgba(255, 255, 255, 0); /* TODO remove*/
+    border-bottom: none;
+}
+
+/* IDs */
+#close-form-btn {
+    position: absolute;
+    top: 0;
+    right: 1rem;
+
+    width: 4rem;
+    height: 4rem;
+
+    font-size: 2rem;
+
+    border-radius: 100%;
+}
+
+#close-form-btn:hover {
+    background-color: darkcyan;
+}
+
+#initial-kills-set {
+    padding: 1rem;
+}
+
+#initial-kills-set label {
+    margin: 0 .2rem;
+}
+
+#initial-kills-set legend {
+    margin-left: .3rem;
+}
+
+#initial-kills-set select {
+    width: 40%;
+}
+
+#initial-kills-set input[type="number"] {
+    width: 20%;
+}
+
+#added-kills {
+    list-style-type: none;
+}
+
+#added-kills li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin: .3rem;
+    padding: .3rem;
+
+    border: darkcyan 2px solid;
+    border-radius: 6px;
+}
+
+#added-kills button {
+    margin: 0 0 0 .3rem;
+}
+
+#player-form {
+    display: flex;
+    flex-direction: column;
+    /*justify-content: space-between;*/
+    align-items: center;
+
+    height: 100%;
+    width: 100%;
+
+    /*margin: .2rem;*/
+    padding: 1rem;
+
+    /*border: darkcyan 4px solid;*/
+
+    background-color: cadetblue;
+}
+
+#player-form input, select {
+    width: 10rem;
+
+    padding: .3rem;
+}
+
+
+/* Classes */
+
+.App {
+
+    position: relative;
+
+    /*height: 70%;*/
+    /*width: 70%;*/
+
+    margin: auto;
+
+    /*transform: translateY(-50%);*/
+    /*top: 50%;*/
+
+    text-align: center;
+}
+
+.info-item {
+    display: flex;
+    justify-content: space-between;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 15rem;
+
+    margin: .3rem;
+}
+
+
+.kill-adjust-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 0 .2rem;
+    padding: .2rem;
+
+    width: 1.2rem;
+    height: 1.2rem;
+}
+.kill-count-container {
+    display: flex;
+}
+
+.killCounter {
+    display: flex;
+    font-size: 3rem;
+    align-items: center;
+}
+
+.killCounter span:nth-child(2) {
+    display: block;
+
+    width: 4rem;
+    height: 4rem;
+
+    text-align: center;
+    align-content: center;
+
+
+    margin: 0 .4rem;
+    /*padding: .4rem;*/
+
+    background-color: darkcyan;
+
+    border-radius: 10%;
+}
+
+.kill-list-item {
+    display: flex;
+    justify-content: space-between;
+
+    /*width: 8rem;*/
+    height: 2rem;
+
+    padding: .3rem;
+    margin: 0 auto;
+
+    border-bottom: 2px dotted darkcyan;
+}
+
+.kill-list-totals {
+    border: darkcyan 2px solid;
+    border-radius: 6px;
+
+    margin-top: auto;
+}
+
+.kill-list-totals:first-child {
+    margin-bottom: .3rem;
+}
+
+
+
+.modal {
+    position: absolute;
+    width: 50%;
+    /*height: 50%;*/
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    border: var(--border-thin);
+    border-radius: var(--border-rad);
+
+}
+
+.tooltip {
+    display: none;
+
+    position: absolute;
+    left: 4.5rem;
+    top: 0;
+
+    width: 6rem;
+
+    padding: .4rem;
+
+    background-color: cadetblue;
+
+    border: darkcyan 3px dashed;
+    border-radius: var(--border-rad);
+}
+
+.small-btn {
+    width: fit-content;
+    height: 1.5rem;
+
+    margin: .2rem auto;
+    padding: .2rem;
+
+    font-size: .8rem;
+
+    border: 1px solid darkcyan;
+    border-radius: 4px;
+}
+
+
+.player-details {
+    display: flex;
+    flex-direction: column;
+
+
+}
+
+.player-details .edit-btn {
+    position: absolute;
+    top: .5rem;
+    right: .5rem;
+
+    padding: 0 .4rem;
+}
+
+.player-info {
+    display: flex;
+    flex-direction: column;
+
+    position: relative;
+
+    height: 100%;
+    width: 40%;
+
+    padding: 1rem;
+
+    border: darkcyan 2px solid;
+    border-radius: 6px;
+
+    color: gainsboro;
+}
+
+.player-info h2 {
+    margin-bottom: .5rem;
+}

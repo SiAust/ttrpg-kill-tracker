@@ -1,0 +1,90 @@
+.menu-item {
+    position: relative;
+
+    height: 33%;
+
+    align-content: center;
+
+    button:hover svg {
+        /*color: darkcyan;*/
+        stroke: var(--col-carib-current);
+        stroke-width: 30px;
+    }
+
+    &:hover .tooltip {
+        display: block;
+    }
+}
+
+.menu-item button:hover {
+    /*background-color: gainsboro;*/
+
+}
+
+.player-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    height: 100%;
+    width: 10%;
+
+    background-color: darkcyan;
+
+    border-radius: 6px;
+}
+
+.player-menu button {
+    width: 100%;
+    height: 100%;
+
+    padding: 0;
+    margin: 0;
+    border: none;
+
+    background: none;
+}
+
+.player-menu button:disabled {
+    cursor: not-allowed;
+    background-color: cadetblue;
+    border: darkcyan 2px solid;
+
+}
+
+.player-menu button:disabled svg {
+
+    color: lightgray;
+}
+
+.player-menu button:disabled:hover svg {
+    color: lightgray;
+
+    stroke: none;
+}
+
+.player-menu svg {
+    font-size: 2rem;
+    margin: .2rem;
+}
+
+.player-menu:hover {
+    color: white;
+    cursor: pointer;
+}
+
+.player-menu .menu-item:first-child button {
+    border-radius: 6px 6px 0 0;
+}
+
+.player-menu .menu-item:nth-child(2) button {
+    border-radius: 0;
+    border-bottom: 0;
+    border-top: 0;
+}
+
+.player-menu .menu-item:last-child button {
+    border-radius: 0 0 6px 6px;
+}
+
+

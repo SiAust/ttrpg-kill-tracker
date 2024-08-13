@@ -4,7 +4,7 @@ import ReactModal from "react-modal"
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faEdit, faPlus, faChevronDown, faChevronUp} from "@fortawesome/free-solid-svg-icons";
 
-import './App.css';
+import './styles/App.css';
 
 import PlayerCard from "./PlayerCard";
 import AddPlayerForm from "./AddPlayerForm";
@@ -22,6 +22,35 @@ function App() {
     function handlePartyTextInput(event) {
         console.log(event.target.value);
         setPartyName(event.target.value);
+    }
+    /**
+     * @param player The player to set the updated kill object on
+     * @param updatedKill The updated kill object. `{type: [enemy type], count: [num]}`
+     * */
+    function handleAddKill(player, updatedKill) { // TODO change name, handleEDITKill
+        console.log(updatedKill);
+        console.log(player);
+        // find which player is updated
+        try {
+            const playerToUpdate = {...players.find(obj => obj.characterName === player.characterName)}; // TODO add id to players
+            // remove the kill from the killStats array and place the updated kill object within
+            playerToUpdate.killStats = playerToUpdate.killStats.splice(updatedKill.id, 1, updatedKill);
+            // update state
+            setPlayers(prevState => [...prevState, playerToUpdate]);
+        } catch (err) {
+           console.error(err);
+        }
+
+    }
+
+    const [showKillAdjustBtns, setShowKillAdjustBtns] = useState(false);
+    function toggleKillAdjustControls() {
+        setShowKillAdjustBtns(prevState => !prevState);
+        console.log(`showKillAdjustBtns: ${showKillAdjustBtns}`);
+    }
+
+    function handlePlayerCompare() {
+
     }
 
     function createNewPlayer(formObj) { // TODO should be in Player.js?
@@ -55,6 +84,7 @@ function App() {
                 <h1>TTRPG Kill Tracker</h1>
                 <button onClick={() => setShowModal(true)}>New player
                     <FontAwesomeIcon icon={faPlus} />
+                    <FontAwesomeIcon icon={faPlus} />
                 </button>
             </header>
             <main>
@@ -75,7 +105,15 @@ function App() {
                 </header>
                 <div id={"players-container"}>
                     {players.map((player, index) =>
-                        <PlayerCard key={`player${index}`} playerDetails={player} rank={index}/>)}
+                        <PlayerCard
+                            key={`player${index}`}
+                            player={player}
+                            rank={index}
+                            showKillAdjustBtns={showKillAdjustBtns}
+                            handleAddKill={handleAddKill}
+                            toggleKillAdjustControls={toggleKillAdjustControls}
+                            handlePlayerCompare={handlePlayerCompare}
+                        />)}
                 </div>
                 <ReactModal
                     className={"modal"}

@@ -2,22 +2,37 @@ import PlayerImage from "./PlayerImage"
 import PlayerDetails from "./PlayerDetails"
 import StatsMenu from "./StatsMenu"
 import PlayerStats from "./PlayerStats";
+import "./styles/PlayerCard.css"
 
-function PlayerCard({playerDetails, rank}) {
-    console.log(playerDetails)
-    console.log(`totalKills: ${playerDetails.totalKills}`)
+function PlayerCard({
+                        player,
+                        rank,
+                        showKillAdjustBtns,
+                        handleAddKill,
+                        handlePlayerCompare,
+                        toggleKillAdjustControls
+}) {
+    // console.log(playerDetails)
+    // console.log(`totalKills: ${playerDetails.totalKills}`)
+
     return (
         <div className={"player-card"}>
             <div className={"player-info"}>
-                <h2>{playerDetails.characterName}</h2>
+                <h2>{player.characterName}</h2>
                 <PlayerImage />
-                <PlayerDetails {...playerDetails}/>
+                <PlayerDetails {...player}/>
             </div>
             <PlayerStats
-                killStats={playerDetails.killStats}
+                player={player}
+                killStats={player.killStats}
                 rank={rank + 1}
-                totalKills={playerDetails.totalKills}/>
-            <StatsMenu />
+                totalKills={player.totalKills}
+                showKillAdjustBtns={showKillAdjustBtns}
+                handleAddKill={handleAddKill}
+                toggleKillAdjustControls={toggleKillAdjustControls}
+                handlePlayerCompare={handlePlayerCompare}
+            />
+
         </div>
     )
 }

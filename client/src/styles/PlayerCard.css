@@ -1,0 +1,24 @@
+.player-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+
+    height: 20rem;
+    width: 40rem;
+
+    margin: 1rem auto;
+    padding: .5rem;
+
+    /*border: darkcyan 4px solid;*/
+    border-radius: 6px;
+
+    background-color: cadetblue;
+
+
+}
+
+.player-card p, .player-card span,
+.player-card svg {
+    color: gainsboro;
+}
