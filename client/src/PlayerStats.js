@@ -21,7 +21,7 @@ function PlayerStats({
         setShowKillAdjustBtns(prevState => !prevState);
         // console.debug(`showKillAdjustBtns: ${showKillAdjustBtns}`);
     }
-    // TODO add component function to validate kill value (kill >= 0)
+
     return (
         <>
             <div className={"player-stats"}>
@@ -35,7 +35,9 @@ function PlayerStats({
                                     {showKillAdjustBtns
                                         &&
                                         <button className={"kill-adjust-btn"}
-                                                onClick={() => handleAddKill(player, {...kill, count: kill.count - 1})}>
+                                                onClick={() => handleAddKill(player, {...kill, count: kill.count - 1})}
+                                                disabled={kill.count <= 0}
+                                        >
                                             -
                                         </button>}
                                     {showKillAdjustBtns
