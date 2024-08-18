@@ -2,15 +2,16 @@ import PlayerImage from "./PlayerImage"
 import PlayerDetails from "./PlayerDetails"
 import StatsMenu from "./StatsMenu"
 import PlayerStats from "./PlayerStats";
-import "./styles/PlayerCard.css"
 
+import "./styles/PlayerCard.css";
+import "./styles/Tooltip.css";
 function PlayerCard({
                         player,
                         rank,
-                        showKillAdjustBtns,
+                        // showKillAdjustBtns,
                         handleAddKill,
                         handlePlayerCompare,
-                        toggleKillAdjustControls
+                        // toggleKillAdjustControls
 }) {
     // console.log(playerDetails)
     // console.log(`totalKills: ${playerDetails.totalKills}`)
@@ -27,9 +28,9 @@ function PlayerCard({
                 killStats={player.killStats}
                 rank={rank + 1}
                 totalKills={player.totalKills}
-                showKillAdjustBtns={showKillAdjustBtns}
+                // showKillAdjustBtns={showKillAdjustBtns}
                 handleAddKill={handleAddKill}
-                toggleKillAdjustControls={toggleKillAdjustControls}
+                // toggleKillAdjustControls={toggleKillAdjustControls}
                 handlePlayerCompare={handlePlayerCompare}
             />
 

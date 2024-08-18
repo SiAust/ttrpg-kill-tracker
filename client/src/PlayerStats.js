@@ -3,18 +3,25 @@ import {faSkull} from "@fortawesome/free-solid-svg-icons";
 import StatsMenu from "./StatsMenu";
 
 import "./styles/PlayerStats.css"
+import {useState} from "react";
 
 function PlayerStats({
                         player,
                          killStats = [],
                          rank = "?",
                          totalKills,
-                         showKillAdjustBtns = false,
+                         // showKillAdjustBtns = false,
                          handleAddKill,
-                         toggleKillAdjustControls,
+                         // toggleKillAdjustControls,
                          handlePlayerCompare
                      }) {
 
+    const [showKillAdjustBtns, setShowKillAdjustBtns] = useState(false);
+    function toggleKillAdjustControls() {
+        setShowKillAdjustBtns(prevState => !prevState);
+        // console.debug(`showKillAdjustBtns: ${showKillAdjustBtns}`);
+    }
+    // TODO add component function to validate kill value (kill >= 0)
     return (
         <>
             <div className={"player-stats"}>

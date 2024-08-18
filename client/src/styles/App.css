@@ -68,6 +68,15 @@ header {
     border-bottom: 4px solid darkcyan;
 
     z-index: 1;
+
+    svg:first-child[data-icon="plus"] {
+        margin-right: 0;
+    }
+
+    svg:nth-child(2) {
+        margin-left: 0;
+    }
+
 }
 
 header button {
@@ -236,72 +245,6 @@ main header {
     margin: .3rem;
 }
 
-
-.kill-adjust-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    margin: 0 .2rem;
-    padding: .2rem;
-
-    width: 1.2rem;
-    height: 1.2rem;
-}
-.kill-count-container {
-    display: flex;
-}
-
-.killCounter {
-    display: flex;
-    font-size: 3rem;
-    align-items: center;
-}
-
-.killCounter span:nth-child(2) {
-    display: block;
-
-    width: 4rem;
-    height: 4rem;
-
-    text-align: center;
-    align-content: center;
-
-
-    margin: 0 .4rem;
-    /*padding: .4rem;*/
-
-    background-color: darkcyan;
-
-    border-radius: 10%;
-}
-
-.kill-list-item {
-    display: flex;
-    justify-content: space-between;
-
-    /*width: 8rem;*/
-    height: 2rem;
-
-    padding: .3rem;
-    margin: 0 auto;
-
-    border-bottom: 2px dotted darkcyan;
-}
-
-.kill-list-totals {
-    border: darkcyan 2px solid;
-    border-radius: 6px;
-
-    margin-top: auto;
-}
-
-.kill-list-totals:first-child {
-    margin-bottom: .3rem;
-}
-
-
-
 .modal {
     position: absolute;
     width: 50%;
@@ -315,23 +258,6 @@ main header {
     border: var(--border-thin);
     border-radius: var(--border-rad);
 
-}
-
-.tooltip {
-    display: none;
-
-    position: absolute;
-    left: 4.5rem;
-    top: 0;
-
-    width: 6rem;
-
-    padding: .4rem;
-
-    background-color: cadetblue;
-
-    border: darkcyan 3px dashed;
-    border-radius: var(--border-rad);
 }
 
 .small-btn {

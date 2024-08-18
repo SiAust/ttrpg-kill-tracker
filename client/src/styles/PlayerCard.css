@@ -22,3 +22,19 @@
 .player-card svg {
     color: gainsboro;
 }
+.playersFlexView {
+    display: flex;
+    flex-direction: column;
+}
+.playersGridView {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    .player-card {
+        width: 30rem;
+    }
+
+    .tooltip {
+        left: 3.6rem;
+    }
+}

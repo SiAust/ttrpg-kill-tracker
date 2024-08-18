@@ -8,3 +8,74 @@
 
     padding: 1rem 1rem 0;
 }
+
+.kill-count-container {
+     display: flex;
+
+    p {
+        width: 1.2rem;
+        text-align: right;
+    }
+ }
+
+.kill-adjust-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 0 .2rem;
+    padding: .2rem;
+
+    width: 1.2rem;
+    height: 1.2rem;
+}
+
+
+.killCounter {
+    display: flex;
+    font-size: 3rem;
+    align-items: center;
+}
+
+.killCounter span:nth-child(2) {
+    display: block;
+
+    width: 4rem;
+    height: 4rem;
+
+    text-align: center;
+    align-content: center;
+
+
+    margin: 0 .4rem;
+    /*padding: .4rem;*/
+
+    background-color: darkcyan;
+
+    border-radius: 10%;
+}
+
+.kill-list-item {
+    display: flex;
+    justify-content: space-between;
+
+    /*width: 8rem;*/
+    height: 2rem;
+
+    padding: .3rem;
+    margin: 0 auto;
+
+    border-bottom: 2px dotted darkcyan;
+}
+
+.kill-list-totals {
+    border: darkcyan 2px solid;
+    border-radius: 6px;
+
+    margin-top: auto;
+}
+
+.kill-list-totals:first-child {
+    margin-bottom: .3rem;
+}
+

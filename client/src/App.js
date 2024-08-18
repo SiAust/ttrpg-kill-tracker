@@ -2,7 +2,7 @@ import {useEffect, useState} from "react";
 import ReactModal from "react-modal"
 
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faEdit, faPlus, faChevronDown, faChevronUp} from "@fortawesome/free-solid-svg-icons";
+import {faEdit, faPlus, faChevronDown, faChevronUp, faList, faSquare, faTh} from "@fortawesome/free-solid-svg-icons";
 
 import './styles/App.css';
 
@@ -28,25 +28,26 @@ function App() {
      * @param updatedKill The updated kill object. `{type: [enemy type], count: [num]}`
      * */
     function handleAddKill(player, updatedKill) { // TODO change name, handleEDITKill
-        console.log(updatedKill);
-        console.log(player);
-        // find which player is updated
+
         try {
-            const playerToUpdate = {...players.find(obj => obj.characterName === player.characterName)}; // TODO add id to players
+            const playerIndex = players.findIndex(curr => curr.id === player.id);
+            const playerToUpdate = {...players[playerIndex]};
+            console.debug(playerToUpdate);
             // remove the kill from the killStats array and place the updated kill object within
-            playerToUpdate.killStats = playerToUpdate.killStats.splice(updatedKill.id, 1, updatedKill);
-            // update state
-            setPlayers(prevState => [...prevState, playerToUpdate]);
+            playerToUpdate.killStats.splice(updatedKill.id, 1, updatedKill);
+            // Create a shallow copy of players to prevent referencing old objects
+            let updatedPlayers = [...players];
+            // Remove and replace the outdated Player state
+            updatedPlayers.splice(playerIndex, 1, playerToUpdate);
+            // Update state
+            setPlayers([...updatedPlayers]);
+            console.debug(players);
+            console.info(
+                `Updated player ${playerToUpdate.characterName} with adjusted kill - type: ${updatedKill.type}, count: ${updatedKill.count}`);
         } catch (err) {
            console.error(err);
         }
 
-    }
-
-    const [showKillAdjustBtns, setShowKillAdjustBtns] = useState(false);
-    function toggleKillAdjustControls() {
-        setShowKillAdjustBtns(prevState => !prevState);
-        console.log(`showKillAdjustBtns: ${showKillAdjustBtns}`);
     }
 
     function handlePlayerCompare() {
@@ -64,11 +65,21 @@ function App() {
     }
 
     const SORT_ASC = ((a, b) => a.totalKills - b.totalKills);
-    const SORT_DEC = ((a, b) => b.totalKills - a.totalKills);
+    const SORT_DES = ((a, b) => b.totalKills - a.totalKills);
     const [sortAsc, setSortAsc] = useState(true);
     useEffect(() => {
-             players.sort(sortAsc ? SORT_ASC : SORT_DEC);
-    }, [players, sortAsc]);
+        console.info(`Players sorted in ${sortAsc ? "ascending" : "descending"} order`);
+             players.sort(sortAsc ? SORT_ASC : SORT_DES);
+    }, [sortAsc]);
+
+    /**
+    * Handles the player card view change between grid and flex column.
+    * */
+    const [gridView, setGridView] = useState(true);
+    useEffect(() => {
+
+    }, [gridView]);
+
 
     useEffect(() => {
         fetch("/api") // TODO proxy issues
@@ -102,16 +113,19 @@ function App() {
                     <button onClick={() => setSortAsc(prevState => !prevState)}>
                         <FontAwesomeIcon icon={sortAsc ? faChevronDown : faChevronUp} />
                     </button>
+                    <button onClick={() => setGridView(prevState => !prevState)}>
+                        <FontAwesomeIcon icon={gridView ? faList : faTh} />
+                    </button>
                 </header>
-                <div id={"players-container"}>
+                <div id={"players-container"} className={gridView ? "playersGridView" : "playersFlexView"}>
                     {players.map((player, index) =>
                         <PlayerCard
                             key={`player${index}`}
                             player={player}
                             rank={index}
-                            showKillAdjustBtns={showKillAdjustBtns}
+                            // showKillAdjustBtns={showKillAdjustBtns}
                             handleAddKill={handleAddKill}
-                            toggleKillAdjustControls={toggleKillAdjustControls}
+                            // toggleKillAdjustControls={toggleKillAdjustControls}
                             handlePlayerCompare={handlePlayerCompare}
                         />)}
                 </div>
