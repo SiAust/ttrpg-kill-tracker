@@ -1,0 +1,16 @@
+.tooltip {
+    display: none;
+
+    position: absolute;
+    left: 4.5rem;
+    top: 0;
+
+    width: 6rem;
+
+    padding: .4rem;
+
+    background-color: cadetblue;
+
+    border: darkcyan 3px dashed;
+    border-radius: var(--border-rad);
+}

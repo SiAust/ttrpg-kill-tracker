@@ -1,0 +1,10 @@
+.player-image {
+    height: 10rem;
+    width: 10rem;
+
+    margin: auto;
+
+    background: linear-gradient(to right, darkcyan, cadetblue);
+
+    border: darkcyan 2px solid;
+}
