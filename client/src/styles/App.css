@@ -1,7 +1,9 @@
 :root {
+    --col-platinum: #dbdbdb;
+    --col-ash-gray: #9dbdbe;
     --col-main: cadetblue;
-    --col-secondary: gainsboro;
-    --col-accent: darkcyan;
+    --col-main2: darkcyan;
+    --col-carib-current: #286567;
 
     --border-thin: darkcyan 2px solid;
     --border-med: darkcyan 4px solid;
@@ -23,7 +25,7 @@ body, html, #root {
 }
 
 body {
-    background-color: var(--col-secondary);
+    background-color: var(--col-platinum);
 }
 
 button {
@@ -66,6 +68,15 @@ header {
     border-bottom: 4px solid darkcyan;
 
     z-index: 1;
+
+    svg:first-child[data-icon="plus"] {
+        margin-right: 0;
+    }
+
+    svg:nth-child(2) {
+        margin-left: 0;
+    }
+
 }
 
 header button {
@@ -234,75 +245,6 @@ main header {
     margin: .3rem;
 }
 
-.killCounter {
-    display: flex;
-    font-size: 3rem;
-    align-items: center;
-}
-
-.killCounter span:nth-child(2) {
-    display: block;
-
-    width: 4rem;
-    height: 4rem;
-
-    text-align: center;
-    align-content: center;
-
-
-    margin: 0 .4rem;
-    /*padding: .4rem;*/
-
-    background-color: darkcyan;
-
-    border-radius: 10%;
-}
-
-.kill-list-item {
-    display: flex;
-    justify-content: space-between;
-
-    width: 8rem;
-
-    padding: .3rem;
-    margin: 0 auto;
-}
-
-.kill-list-totals {
-    border: darkcyan 2px solid;
-    border-radius: 6px;
-
-    margin-top: auto;
-}
-
-.kill-list-totals:first-child {
-    margin-bottom: .3rem;
-}
-
-.menu-item {
-    position: relative;
-
-    height: 33%;
-
-    align-content: center;
-}
-
-.menu-item:first-child {
-    border-radius: 6px 6px 0 0;
-}
-
-.menu-item:last-child {
-    border-radius: 0 0 6px 6px;
-}
-
-.menu-item:hover {
-    background-color: white;
-}
-
-.menu-item:hover .tooltip {
-    display: block;
-}
-
 .modal {
     position: absolute;
     width: 50%;
@@ -318,28 +260,6 @@ main header {
 
 }
 
-.player-menu {
-    height: 100%;
-    width: 10%;
-
-    display: flex;
-    flex-direction: column;
-
-    background-color: darkcyan;
-
-    border-radius: 6px;
-}
-
-.player-menu svg {
-    font-size: 2rem;
-    margin: .2rem;
-}
-
-.player-menu:hover {
-    color: white;
-    cursor: pointer;
-}
-
 .small-btn {
     width: fit-content;
     height: 1.5rem;
@@ -353,59 +273,6 @@ main header {
     border-radius: 4px;
 }
 
-.tooltip {
-    display: none;
-
-    position: absolute;
-    right: -7rem;
-    top: 0;
-
-    /*height: 3rem;*/
-    /*width: 6rem;
-    /*width: 6rem;*/
-    /*transform-origin: center;*/
-    padding: .4rem;
-
-    background-color: cadetblue;
-
-    border: darkcyan 3px dashed;
-    border-radius: var(--border-rad);
-}
-
-.player-stats {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-
-    height: 100%;
-    width: 50%;
-
-    padding: 1rem 1rem 0;
-}
-
-.player-card {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-
-
-    height: 20rem;
-    width: 40rem;
-
-    margin: 1rem auto;
-    padding: .5rem;
-
-    /*border: darkcyan 4px solid;*/
-    border-radius: 6px;
-
-    background-color: cadetblue;
-}
-
-.player-card p, .player-card span,
-.player-card svg {
-    color: gainsboro;
-}
 
 .player-details {
     display: flex;
@@ -413,23 +280,13 @@ main header {
 
 
 }
+
 .player-details .edit-btn {
     position: absolute;
     top: .5rem;
     right: .5rem;
 
     padding: 0 .4rem;
-}
-
-.player-image {
-    height: 10rem;
-    width: 10rem;
-
-    margin: auto;
-
-    background: linear-gradient(to right, darkcyan, cadetblue);
-
-    border: darkcyan 2px solid;
 }
 
 .player-info {
